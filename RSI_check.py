@@ -1,49 +1,60 @@
 import re
+import glob
+import codecs
 
-file_name = "C:/Users/z2085102/Desktop/temp/python/log/RSI.txt"
-
+files = glob.glob(".\log\*")
+for name in files:
+	file_name = name
 
 file = open(file_name)
 lines = file.readlines()
-k = '-----------'
+k = '--------------------------------------'
 lines_strip = [line.strip() for line in lines]
 
-l_001_i = [i for i, line in enumerate(lines_strip) if 'show chassis alarms' in line]
-l_002_i = [i for i, line in enumerate(lines_strip) if 'show system core-dumps' in line]
-l_003_i = [i for i, line in enumerate(lines_strip) if 'show chassis environment' in line]
-l_004_i = [i for i, line in enumerate(lines_strip) if 'show chassis hardware detail' in line]
-l_005_i = [i for i, line in enumerate(lines_strip) if 'show version detail' in line]
+line_show_list = [i for i, line in enumerate(lines_strip) if 'show ' in line]
+#print(line_show_list)
+
+l_001_i = [i for i, line in enumerate(lines_strip) if 'show version detail' in line]
+l_002_i = [i for i, line in enumerate(lines_strip) if 'show chassis alarms' in line]
+l_003_i = [i for i, line in enumerate(lines_strip) if 'show system core-dumps' in line]
+l_004_i = [i for i, line in enumerate(lines_strip) if 'show chassis environment' in line]
+l_005_i = [i for i, line in enumerate(lines_strip) if 'show chassis hardware detail' in line]
 
 
-a001 = l_001_i[0]
-b001 = l_001_i[1]
-a002 = l_002_i[0]
-b002 = l_002_i[1]
-a003 = l_003_i[0]
-b003 = l_003_i[1]
-a004 = l_004_i[0]
-b004 = l_004_i[1]
-a005 = l_005_i[0]
+#print(l_001_i)
+no1 = len(l_001_i)
+#print(no1)
 
-print(k)
-print(*lines_strip[a005:a005+5],sep="\n")
-print(k)
-print(*lines_strip[a001:a001+5],sep="\n")
-print(k)
-print(*lines_strip[b001:b001+5],sep="\n")
-print(k)
-print(*lines_strip[a002:a002+5],sep="\n")
-print(k)
-print(*lines_strip[b002:b002+5],sep="\n")
-print(k)
-print(*lines_strip[a003:a003+32],sep="\n")
-print(k)
-#print(*lines_strip[b003:b003+32],sep="\n")
-#print(k)
-print(*lines_strip[a004:a004+50],sep="\n")
-print(k)
-#print(*lines_strip[b004:b004+50],sep="\n")
-#print(k)
+for no1_c in range(len(l_001_i)):
+	no1_list = line_show_list.index(l_001_i[no1_c])
+	no1_list_e = no1_list + 1
+	print(k)
+	print(*lines_strip[line_show_list[no1_list]:line_show_list[no1_list_e]], sep="\n")
+
+for no2_c in range(len(l_002_i)):
+	no2_list = line_show_list.index(l_002_i[no2_c])
+	no2_list_e = no2_list + 1
+	print(k)
+	print(*lines_strip[line_show_list[no2_list]:line_show_list[no2_list_e]], sep="\n")
+
+for no3_c in range(len(l_003_i)):
+	no3_list = line_show_list.index(l_003_i[no3_c])
+	no3_list_e = no3_list + 1
+	print(k)
+	print(*lines_strip[line_show_list[no3_list]:line_show_list[no3_list_e]], sep="\n")
+
+for no4_c in range(len(l_004_i)):
+	no4_list = line_show_list.index(l_004_i[no4_c])
+	no4_list_e = no4_list + 1
+	print(k)
+	print(*lines_strip[line_show_list[no4_list]:line_show_list[no4_list_e]], sep="\n")
+
+for no5_c in range(len(l_005_i)):
+	no5_list = line_show_list.index(l_005_i[no5_c])
+	no5_list_e = no5_list + 1
+	print(k)
+	print(*lines_strip[line_show_list[no5_list]:line_show_list[no5_list_e]], sep="\n")
+
 
 file.close()
 
