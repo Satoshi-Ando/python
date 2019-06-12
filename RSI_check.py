@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 import glob
 import codecs
@@ -10,9 +12,7 @@ file = open(file_name)
 lines = file.readlines()
 k = '--------------------------------------'
 lines_strip = [line.strip() for line in lines]
-
 line_show_list = [i for i, line in enumerate(lines_strip) if 'show ' in line]
-#print(line_show_list)
 
 l_001_i = [i for i, line in enumerate(lines_strip) if 'show version detail' in line]
 l_002_i = [i for i, line in enumerate(lines_strip) if 'show chassis alarms' in line]
@@ -20,11 +20,7 @@ l_003_i = [i for i, line in enumerate(lines_strip) if 'show system core-dumps' i
 l_004_i = [i for i, line in enumerate(lines_strip) if 'show chassis environment' in line]
 l_005_i = [i for i, line in enumerate(lines_strip) if 'show chassis hardware detail' in line]
 
-
-#print(l_001_i)
 no1 = len(l_001_i)
-#print(no1)
-
 for no1_c in range(len(l_001_i)):
 	no1_list = line_show_list.index(l_001_i[no1_c])
 	no1_list_e = no1_list + 1
