@@ -51,7 +51,4 @@ for no5_c in range(len(l_005_i)):
 	print(k, file=codecs.open('C:/Users/z2085102/Desktop/result.txt', 'a', 'utf-8'))
 	print(*lines_strip[line_show_list[no5_list]:line_show_list[no5_list_e]], sep="\n", file=codecs.open('C:/Users/z2085102/Desktop/result.txt', 'a', 'utf-8'))
 
-
 file.close()
-
-
