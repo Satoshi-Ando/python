@@ -22,7 +22,6 @@ l_003_i = [i for i, line in enumerate(lines_strip) if 'show system core-dumps' i
 l_004_i = [i for i, line in enumerate(lines_strip) if 'show chassis environment' in line]
 l_005_i = [i for i, line in enumerate(lines_strip) if 'show chassis hardware detail' in line]
 
-
 basename1 = os.path.basename(file_name)
 file_ext = os.path.splitext(basename1)
 basename2 = file_ext[0]
@@ -30,8 +29,6 @@ result1 = '{}_result.txt'.format(basename2)
 
 open(result1,'w')
 
-
-no1 = len(l_001_i)
 for no1_c in range(len(l_001_i)):
 	no1_list = line_show_list.index(l_001_i[no1_c])
 	no1_list_e = no1_list + 1
